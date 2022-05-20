@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form {
+        margin: auto;
+        border: 1px solid black;
+        text-align: center;
+        width: 200px;
+        padding: 20px;
+    }
+    
+    #add{
+        cursor: pointer;
+    }
+    h2{
+        text-align: center;
+    }
+    h3{
+      text-align: start;
+    }
+
+    #navbar{
+        width: 100%;
+        height: 20%;
+        border: 1px solid #1f2937;
+        background-color: #1f2937;
+        border-radius: 10px;
+    }
+    #navbar > p{
+        color: white;
+        padding-left: 10px;
+    }
+  
+    
+</style>
+
+<body>
+    <div id="navbar">
+        <p></p>
+    </div>
+
+    <button> <a href="dashboard.html">Go To Dashboard</a> </button>
+    <h2>Details Of Students.</h3>
+    <form action="" onsubmit="storedata(event)" id="form">
+        <h3>Name</h3>
+        <input type="text" placeholder="Name" id="name"><br>
+        <h3>Course</h3>
+        <input type="text" placeholder="Course" id="course"><br>
+        <h3>Unit</h3>
+        <input type="number" placeholder="Unit" id="unit"><br>
+        <h3>Image</h3>
+        <input type="src" placeholder="Image" id="image"><br>
+        <h3>Batch</h3>
+        <input type="text" placeholder="Batch" id="batch"><br><br>
+        <input type="submit" value="submit" id="add">
+    </form>
+   
+
+</body>
+
+</html>
+
+<script>
+   var cartData = JSON.parse(localStorage.getItem("product"));
+  console.log(cartData);
+
+  var total = cartData.reduce(function (sum, elem, index, arr) {
+    return sum + Number(elem.price);
+  }, 0);
+
+  var length = cartData.length;
+  console.log(length);
+
+  console.log(total);
+  // total is Rs 16365
+  //`` - template literals
+  document.querySelector(
+    "p"
+  ).innerText = ` Batch01  - ${length} | Batch02  - ${length}`;
+
+
+    document.querySelector
+    let arr = JSON.parse(localStorage.getItem("product")) || [];
+
+    function product(n, c, u, i, b) {
+        this.name = n
+        this.course = c
+        this.unit = u
+        this.image = i
+        this.batch = b
+    }
+
+
+    function storedata(e) {
+        e.preventDefault();
+
+        var form = document.getElementById("form")
+        var name = form.name.value
+        var course = form.course.value
+        var unit = form.unit.value
+        var image = form.image.value
+        var batch = form.batch.value
+       
+
+        let p1 = new product(name, course, unit, image, batch)
+        arr.push(p1)
+        localStorage.setItem("product", JSON.stringify(arr))
+        console.log(product)
+
+    }
+</script>

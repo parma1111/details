@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container {
+        
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(auto);
+        gap: 20px;
+        justify-content: space-between;
+        margin: auto;
+        text-align: center;
+    }
+    
+    #navbar{
+        width: 100%;
+        height: 20%;
+        border: 1px solid black;
+        background-color: #1f2937;
+        border-radius: 10px;
+    }
+    #navbar > p{
+        color: white;
+        padding-left: 10px;
+    }
+</style>
+
+<body>
+    <div id="navbar">
+        <p></p>
+    </div>
+    
+<h1>Dashboard</h1>
+    <div id="container">
+       
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+var cartData = JSON.parse(localStorage.getItem("product"));
+  console.log(cartData);
+
+  var total = cartData.reduce(function (sum, elem, index, arr) {
+    return sum + Number(elem.price);
+  }, 0);
+
+  var length = cartData.length;
+  console.log(length);
+
+  console.log(total);
+ 
+  document.querySelector(
+    "p"
+  ).innerText = ` Batch01  - ${length} | Batch02  - ${length}`;
+
+
+    var productdata = JSON.parse(localStorage.getItem("product")) || []
+
+    productdata.map(function(ele, index) {
+
+        let div1 = document.createElement("div")
+        div1.setAttribute("class", "div1")
+
+        var p1 = document.createElement("p")
+        p1.innerText = ele.name
+        var img1 = document.createElement("img")
+        img1.src = ele.image
+        img1.style.width = "100%"
+        img1.style.height = "200px"
+        var p2 = document.createElement("p")
+        p2.innerText = ele.course
+        var p3 = document.createElement("p")
+        p3.innerText = ele.unit
+        var p4 = document.createElement("p")
+        p4.innerText = ele.batch
+
+        div2 = document.createElement("div")
+        div2.setAttribute("class", "div2")
+
+        btn1 = document.createElement("button")
+        btn1.setAttribute("id", "remove")
+        btn1.innerText = "Remove"
+        btn1.style.border = "0px"
+        btn1.style.backgroundColor = "rgb(238, 50, 50)"
+        btn1.style.color = "white"
+        btn1.style.margin = "0px 20px 0px 10px"
+        btn1.style.padding = "5px 10px"
+        btn1.addEventListener("click", function() {
+            Removefromcart(ele, index)
+        });
+
+
+        btn2 = document.createElement("button1")
+
+        div2.append(btn1, btn2)
+
+        div1.append(p1, img1, p2, p3, p4, div2)
+        document.querySelector("#container").append(div1)
+
+    });
+
+    function Removefromcart(ele, i) {
+        productdata.splice(i, 1)
+        localStorage.setItem("product", JSON.stringify(productdata))
+        window.location.reload()
+    }
+</script>
