@@ -37,14 +37,17 @@
         color: white;
         padding-left: 10px;
     }
+    button{
+        margin-top: 10px;
+    }
   
     
 </style>
 
 <body>
-    <div id="navbar">
+    <!-- <div id="navbar">
         <p></p>
-    </div>
+    </div> -->
 
     <button> <a href="dashboard.html">Go To Dashboard</a> </button>
     <h2>Details Of Students.</h3>
@@ -68,25 +71,24 @@
 </html>
 
 <script>
-   var cartData = JSON.parse(localStorage.getItem("product"));
-  console.log(cartData);
+//    var cartData = JSON.parse(localStorage.getItem("product"));
+//   console.log(cartData);
 
-  var total = cartData.reduce(function (sum, elem, index, arr) {
-    return sum + Number(elem.price);
-  }, 0);
+//   var total = cartData.reduce(function (sum, elem, index, arr) {
+//     return sum + Number(elem.price);
+//   }, 0);
 
-  var length = cartData.length;
-  console.log(length);
+//   var length = cartData.length;
+//   console.log(length);
 
-  console.log(total);
-  // total is Rs 16365
-  //`` - template literals
-  document.querySelector(
-    "p"
-  ).innerText = ` Batch01  - ${length} | Batch02  - ${length}`;
+//   console.log(total);
+ 
+//   document.querySelector(
+//     "p"
+//   ).innerText = ` Batch01  - ${length} | Batch02  - ${length}`;
 
 
-    document.querySelector
+//     document.querySelector
     let arr = JSON.parse(localStorage.getItem("product")) || [];
 
     function product(n, c, u, i, b) {

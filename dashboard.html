@@ -67,7 +67,7 @@ var cartData = JSON.parse(localStorage.getItem("product"));
   ).innerText = ` Batch01  - ${length} | Batch02  - ${length}`;
 
 
-    var productdata = JSON.parse(localStorage.getItem("product")) || []
+    var productdata = JSON.parse(localStorage.getItem("product")) || [];
 
     productdata.map(function(ele, index) {
 
@@ -117,4 +117,5 @@ var cartData = JSON.parse(localStorage.getItem("product"));
         localStorage.setItem("product", JSON.stringify(productdata))
         window.location.reload()
     }
+    
 </script>
